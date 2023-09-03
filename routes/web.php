@@ -13,17 +13,55 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-});
+// Route::get('/', function () {
+//     return view('welcome');
+// });
+// https://demo.prestashop.com/#/en/back
 
-Route::get('/#/en/back', function () {
-    return view('admin');
-});
-Route::get('/id', function () {
+// https://www.mrdiy.com/id/
+Route::get('/', function () {
     return view('public');
 });
 
+Route::prefix('/back')->group(function(){
+    Route::get('/', function () {
+        return view('admin');
+    });
+
+    #PrestaShop
+    #Admin
+
+    Route::get('orders/orders', function(){
+        return 'ini halaman pesanan pada sisi admin ';
+    });
+
+    Route::get('/orders/invoices', function(){
+        return 'ini halaman faktur pada sisi admin ';
+    });
+
+
+    Route::get('orders/shopping-Cart', function(){
+        return 'ini halaman keranjang pada sisi admin ';
+    });
+
+    Route::get('catalog/products', function(){
+        return 'ini halaman produk pada sisi admin ';
+    });
+    Route::get('catalog/categories', function(){
+        return 'ini halaman kategori pada sisi admin ';
+    });
+    Route::get('catalog/attributes-features', function(){
+        return 'ini halaman atribut dan features pada sisi admin ';
+    });
+    Route::get('catalog/brands-suppliers', function(){
+        return 'ini halaman brands dan suppliers pada sisi admin ';
+    });
+
+
+    Route::get('customer-service/Merchandise-return', function(){
+        return 'ini halaman pengembalian barang ';
+    });
+});
 #public
 
 #https://www.mrdiy.com/id/page/tentang-kami/
@@ -88,3 +126,5 @@ Route::get('kategori/{id}', function($id){
 Route::get('produk/{id}', function($id){
     return 'ini halaman produk barang '. $id. ' pada toko OurHardwareStore ';
 });
+
+
