@@ -47,23 +47,25 @@ Route::prefix('/back')->group(function(){
     Route::get('catalog/products', function(){
         return 'ini halaman produk pada sisi admin ';
     });
+
     Route::get('catalog/categories', function(){
         return 'ini halaman kategori pada sisi admin ';
     });
+
     Route::get('catalog/attributes-features', function(){
         return 'ini halaman atribut dan features pada sisi admin ';
     });
+
     Route::get('catalog/brands-suppliers', function(){
         return 'ini halaman brands dan suppliers pada sisi admin ';
     });
-
 
     Route::get('customer-service/Merchandise-return', function(){
         return 'ini halaman pengembalian barang ';
     });
 });
-#public
 
+#public
 #https://www.mrdiy.com/id/page/tentang-kami/
 Route::get('tentang-kami', function(){
     return 'ini halaman about us atau tentang kami';
@@ -97,11 +99,6 @@ Route::get('contact-us', function(){
 #https://www.mrdiy.com/id/storeopenings/
 Route::get('storeopenings', function(){
     return 'ini halaman berita toko OurHardwareStore yang baru dibuka';
-});
-
-#https://www.mrdiy.com/id/event/
-Route::get('event', function(){
-    return 'ini halaman acara yang dibuat OurHardwareStore';
 });
 
 #https://www.mrdiy.com/id/pressrelease/
