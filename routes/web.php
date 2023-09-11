@@ -20,7 +20,7 @@ use Illuminate\Support\Facades\Route;
 
 // https://www.mrdiy.com/id/
 Route::get('/', function () {
-    return view('public');
+    return view('welcome');
 });
 
 Route::prefix('/back')->group(function(){
@@ -117,14 +117,27 @@ Route::get('promotion', function(){
 #https://www.mrdiy.com/id/page/produk-kami/
 Route::get('produk', function(){
     return 'ini halaman kategori produk barang pada toko OurHardwareStore';
-});
+})->name('products');
 
-Route::get('kategori/{id}', function($id){
-    return 'ini halaman produk barang yang berkategori '. $id. ' pada toko OurHardwareStore ';
-});
+// Route::get('kategori/{id?}', function($id = "default"){
+//     return 'ini halaman produk barang yang berkategori '. $id. ' pada toko OurHardwareStore ';
+// })->name('category');
 
 Route::get('produk/{id}', function($id){
-    return 'ini halaman produk barang '. $id. ' pada toko OurHardwareStore ';
+    return view('product', ['id' => $id]);
 });
+
+
+Route::get('kategori/{kode}', function($kode){
+    return view('kategori', ['code'=> $kode]);
+});
+
+Route::get('detail-kategori/{kode}', function($kode){
+    return view('detailKategori', ['code'=> $kode]);
+})->name('detailKategori');
+
+Route::get('detail-product/{id}', function($id){
+    return view('detailProduct', ['id'=> $id]);
+})->name('detailProduct');
 
 
