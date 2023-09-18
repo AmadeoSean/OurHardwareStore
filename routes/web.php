@@ -1,7 +1,8 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
-
+use App\Http\Controllers\productController;
+use App\Http\Controllers\CategoryController;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -136,5 +137,11 @@ Route::get('detail-kategori/{kode}', function($kode){
 Route::get('detail-product/{id}', function($id){
     return view('detailProduct', ['id'=> $id]);
 })->name('detailProduct');
+
+
+Route::resource('product', ProductController::class);
+Route::resource('category', CategoryController::class);
+
+Route::get("albumProduct", [productController::class,'album']);
 
 
